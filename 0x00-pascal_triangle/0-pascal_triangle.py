@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #!/usr/bin/python3
 """
     This function returns a list
@@ -25,3 +26,15 @@ def pascal_triangle(n: int):
                           pascal[line - 1][i])
         pascal.append(arr)
     return pascal
+=======
+def pascal_triangle(n):
+    if n <= 0:
+        return []
+    result = []
+    for i in range(n):
+        if i == 0:
+            result.append([1])
+        else:
+            result.append([1] + [result[i-1][j] + result[i-1][j+1] for j in range(i-1)] + [1])
+    return result
+>>>>>>> 3370534f8d0060e7e93f7dd98f013a5623a8d3bd
