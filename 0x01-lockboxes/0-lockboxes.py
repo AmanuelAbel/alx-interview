@@ -1,20 +1,17 @@
 #!/usr/bin/python3
-"""
-unlock all the boxes
-The first box is open
-and every box has a key to another box
-"""
+"""Solution to Lockboxes problem"""
 
 
 def canUnlockAll(boxes):
-    """ find every key to open all """
-    size = len(boxes)
-    keys = [0]
-    for i in keys:
-        for key in boxes[i]:
-            if key not in keys and key < size:
-                keys.append(key)
-    if len(keys) == size:
-        return True
-    else:
+    """Determines if all the boxes can be opened"""
+    if (type(boxes) is not list or len(boxes) == 0):
         return False
+    for k in range(1, len(boxes) - 1):
+        unlocked = False
+        for i in range(len(boxes)):
+            unlocked = k in boxes[i] and k != i
+            if unlocked:
+                break
+        if unlocked is False:
+            return unlocked
+    return True
